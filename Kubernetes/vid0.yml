@@ -1,0 +1,26 @@
+Vol1 : Video-0
+Learn Kubernetes
+---
+- Linux 
+- Git
+- Cloud (GCP)
+- K8s
+  - ( Troubleshooting Area )
+  - What are logs
+  - Basics 
+  - POD (sec)
+  - Applic Management 
+  - Project-1
+  - Scheduling ( Kube schedular )
+  - Monitoring and Logging
+  - etcd [ in-Depth ]
+  - Cluster security ( Important )
+  - Project-2
+    - Deploying entire infra using K8s
+    - polymdrivers
+    - Complex projects
+  - Storage and Networking [ in-Depth ]
+  - Misc. (Helm System)
+- 5 projects 
+---
+

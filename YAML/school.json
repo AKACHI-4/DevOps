@@ -1,0 +1,20 @@
+{
+    "School" : [ 
+        {
+            "Name" : "School 1",
+            "Principal" : "Principal 1",
+            "Students" : [ 
+                {
+                    "Name" : "Student 1",
+                    "Age" : 10,
+                    "Grade" : 5
+                },
+                {
+                    "Name" : "Student 2",
+                    "Age" : 11,
+                    "Grade" : 6
+                }
+            ]
+        }
+    ]
+}

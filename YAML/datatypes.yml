@@ -1,0 +1,53 @@
+# String variables
+myself: Adarsh Rawat
+fruit: "mango"
+job: 'ue'
+
+# bio: 
+#   Hey my name is Adarsh Rawat
+#   I am a student now 
+
+bio:
+Hey my name is Adarsh Rawat
+I am a student now 
+
+#Write a single line in multiple lines 
+message: >
+This will 
+all be 
+one single line
+# same as 
+# message: > This will all be one single line
+
+number: 123
+marks: 23.4
+boolenaValue: !!bool No # n, N, false, False, FALSE
+# same for true -> yes, y, Y
+
+# specify the type 
+# Format - !!datatype
+zero: !!int 0 
+positivenumber: !!int 45
+negativenumber: !!int -45
+binarynumber: !!int 01010
+octalNum: !!int 03245
+hexNum: !!int 0x45
+commaValue: !!int +540_000
+exponentialNum: 6.023E56
+
+# floating point numbers 
+simpleNum: !!float 34.56
+infinite: !!float .inf
+not a num: .nan
+
+#null
+surname: !!null Null # or null Null ~
+~: this is a null key
+
+#data and time
+date: !!timestamp 2002-12-23
+india time: 2001-12-15T02:59:43.1 + 5:30
+no time zone: 2001-12-15T02:59:43.10
+
+
+

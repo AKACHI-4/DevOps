@@ -1,0 +1,13 @@
+# Not readable by humans 
+# Version and encoding is provided by the XML declaration
+
+<?xml version="1.0" encoding="UTF-8">
+<school name="AB SVM IC" principal="Someone">
+    <Student>
+        <Student>
+            <rollno>1</rollno>
+            <name>Adarsh</name>
+            <marks>100</marks>
+        </Student>
+    </Student>
+</school>

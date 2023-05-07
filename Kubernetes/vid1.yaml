@@ -1,0 +1,170 @@
+Vol1 : video1
+What is Kubernetes ?
+
+---
+Why Kubernetes ?
+- monolithic architecture
+
+What Kubernetes ?
+- Portable 
+- Extensible 
+  ex : Wallmart have its own container orchestration system with some customization 
+  Container orchestrator : Automate deployment, management, scaling, and Networking of containerized appications
+- Open-source
+- Some more Advantages 
+  - Load Balancer
+  - Service discovery 
+  - Resource consumption
+---
+
+Real Life view : cargo ship, small boats, containers, cranes, etc
+---
+Two type nodes : Master node, Worker node
+
+Master node : control plane
+Worker node : data plane or slave nodes sometimes
+
+ex : 
+- Master node 
+
+  Kube-schedular : container loader 
+  - Schedule the container 
+  - Making sure that container is placed on to the particular worker node
+    - taint toleration 
+    - node affinity
+  - rank worker node and place the container on the worker node having higher rank
+  - then place pod on that worker node
+
+  etcd : key-value pair database
+  - store the data of cluster
+
+  Kube-controller-manager : 
+  - Responsible for making sure the everything is running as it should be
+  - maintaining the state of the cluster
+  - Types of controller
+    - Node controller
+    - Replication controller
+    - Endpoints controller
+    - Service account and token controller
+
+  Kube-apiserver : heart of the k8s 
+  - expose entire kubernetes architecture
+  - To communicate with kube-apiserver, we have to use kubectl
+  - all the communication between master and worker node is done through apiserver
+  - security is most crucial 
+    - So only kube-apiserver have permission to talk to etcd, kube-schedualer, kube-controller-manager
+
+- Worker nodes
+
+  Kublet :
+  - co-pilot of the worker node
+  - talks with apiserver and make sure that container is running on that particular node 
+  - Responsible for maintaining the state of the node
+  - only has access to etcd
+
+  container runtime:
+  - A container runtime is software that is responsible for executing and managing containers on a host machine. 
+  - Required to run the containers
+  - Some of the container runtime
+    - docker
+    - container-d
+    - container-rkt
+    - container-crio
+
+  kube-proxy : 
+  - Less discussed 
+  - Responsible for networking
+  - Responsible for routing the traffic to the appropriate container
+  - Responsible for load balancing
+
+
+How many numbers of worker and master nodes :
+- Quorm - decides minimumn number of node for HA Cluster( High Availability )
+- If our cluster gets down then we can bring it up with the help of quorm HA Cluster 
+- Formula : ( n/2 + 1 )
+- n = number of total nodes
+- ex : 12 nodes cluster
+  - ( 12/2 + 1 ) = 7
+  - 7 nodes are required for HA Cluster
+  - Fault tolerance is 5 nodes means At max only 5 nodes can go down then only our Cluster is HA ( High Availability )
+  - If one other node goes down then our cluster is not HA
+
+  - Never prefer even number of nodes always prefer odd number of nodes for HA Cluster : 
+    - Reason - Like if n = 13 then ( 13/2 + 1 ) = 7 nodes are required for HA Cluster
+    - Fault tolerance is 6 nodes.
+    - 7 nodes for HA which is same as for 12 total nodes cluster
+    - If I can afford 12 nodes then why I will go for 13 nodes cluster
+  That's why take odd no. of total nodes always for HA Cluster
+
+cluster : Overview to define resources
+  nodes : small nodes(~less amount of resources) big nodes (~larger amount of resources) GPU nodes 
+    pod : smallest executable unit of kubernetes or a small computer to run the container 
+      container : our application or its parts 
+        image : snapshot of the application 
+
+- Mulitple container can be run inside a pod
+        
+Kubectl : 
+  Kubectl is a command-line tool used to interact with Kubernetes clusters. It is the primary command-line interface (CLI) tool used to deploy and manage applications on Kubernetes. Kubectl communicates with the Kubernetes API server to manage Kubernetes objects, including pods, services, deployments, and more.
+
+- Pods
+  In order to run a particular container it should be run somewhere 
+  - that somewhere is pods
+  - pods are the smallest executable unit of kubernetes
+  - Smallest computer and network unit
+  - all storage, compute, networking 
+  - all the containers are run inside the pods
+  We need pods to running containers 
+  - Ephemeral in nature : 
+    - Pods are ephemeral in nature, which means that they are not persistent. 
+    - If a pod is deleted, the data inside it is lost. 
+    - Ephemeral means it keeps on changing not static 
+    - state, volume, IP everthing will change
+    - This is because pods are designed to be disposable and replaceable. 
+    - If a pod is deleted, another pod with the same name can be created to replace it.
+  - Even it won't able to tell that pods is deleted 
+  - Solution : Replication controller
+
+Images -> Containers -> Pods -> Service -> Deployment -> Ingress
+
+- Deployments
+  - It is a way to manage pods
+  - It is a way to manage the state of the pods
+  - Replica :
+    - It is a copy of the pods 
+    - So on data loss it can be retrived through replicas 
+  - Understand spec : 
+    '''
+    spce:
+      containers:
+      - name : nginx
+        image : nginx:1.14.2
+        ports:
+        - containerPort: 80
+    '''
+    - It creates the template so someone can use it to create the pods in future
+    - It is not creating the pods
+    - It is just a template
+
+- Services
+  - It is a way to expose the pods to the outside world
+  - Abstraction layer which expose our entire deployments to the outside world
+  - It is a way to communicate with the pods
+  - Types : 
+    - ClusterIP
+    - NodePort
+    - LoadBalancer
+  - returns external IP address
+
+- Ingress
+  - It is a way to expose the services to the outside world
+  - Mapps particular domain name with particular IP 
+
+---
+
+Notes Links : https://www.figma.com/file/mH1B7rNO4ZHPv0dguEtryq/vid-1?type=whiteboard&node-id=0-1&t=nR7FuYS0wixpCGXr-0
+
+Hindi Video Link : https://www.youtube.com/watch?v=1xo-0gCVhTU
+
+
+

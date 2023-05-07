@@ -1,0 +1,9 @@
+--- 
+school:
+- name: "St. Mary's School"
+  principal: "Mr. John"
+  students: 
+  - name: "Adarsh Rawat"
+    marks: 90
+    age: 20
+...

@@ -1,0 +1,93 @@
+# sequential type data
+studnet: !!seq
+  - marks
+  - name
+  - roll_no
+
+# some of the keys of the seq will be empty 
+# sparse seq 
+sparse seq:
+ - Hey
+ - How
+ - 
+ - Null
+ - sup 
+
+# While representing sub-item of a particular list 
+# nested sequencing
+- 
+  - mango 
+  - apple 
+  - banana 
+- 
+ - marks 
+ - roll_no
+ - date
+
+
+# key-value pairs are called maps 
+!!map 
+
+#nested mappings: map within a map
+name: Adarsh Rawat
+role:
+  age: 20
+  job: student
+# same as this
+name: Adarsh Rawat
+role: { age: 20, job: student }
+
+# pairs: keys may have multiple values 
+pair example: !!pairs
+  - job : student 
+  - job : teacher
+
+# this will be an array of hashtable
+pair example: !!pairs
+  - job : student 
+  - job : teacher
+# same as this
+pair example: !!pairs [ job : student, job : teacher ]
+
+
+# set: unordered collection of unique values
+names: !!set
+  ? Adarsh_1
+  ? Adarsh_2
+  ? Adarsh_3
+
+# dictionary !!omap 
+people: !!omap
+  - Adarsh_1 : 
+    name: Adarsh_1
+    age: 20
+  - Adarsh_2 :
+    name: Adarsh_2
+    age: 21
+
+# Resuing some properties using anchors
+# anchors - what do you want to reuse and where do you want to reuse it
+likings: &likes
+  fav fruit: mango
+  dislike fruit: apple
+
+person1: 
+  name: Adarsh_1
+  age: 20
+  <<: *likes
+
+person2: 
+  name: Adarsh_2
+  age: 21
+  <<: *likes
+  #overwriting anchors 
+  dislike fruit: berry
+
+person3: 
+  name: Adarsh_3
+  age: 22
+  <<: *likes
+
+
+
+

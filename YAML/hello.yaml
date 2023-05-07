@@ -1,0 +1,22 @@
+# hashmap or map
+1 : "hello"
+---
+# lists
+# case sensitive 
+- name 
+- Name
+---
+# Block style 
+cities: 
+  - new delhi
+  - mumbai 
+  - gujrat
+---
+cities: [ 
+  new delhi, 
+  mumbai
+]
+---
+{mango: "fruit", age: 56}
+...
+# Parser - YAML lint 
