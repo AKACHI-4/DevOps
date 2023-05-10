@@ -167,4 +167,25 @@ Notes Links : https://www.figma.com/file/mH1B7rNO4ZHPv0dguEtryq/vid-1?type=white
 Hindi Video Link : https://www.youtube.com/watch?v=1xo-0gCVhTU
 
 
+---
+Coammand :
+
+- gcloud container clusters get-credentials standard-cluster-1 --zone us-central1-a --project halogen-chemist-383415 : 
+
+  - This command is to tell api server that a registry is there and it is authenticated
+  - you are instructing the gcloud command-line tool to retrieve the cluster's credentials and configure the local environment, allowing you to execute kubectl commands against the cluster.
+  - A entry of the user has been created in the kubeconfig file 
+
+- kubectl get pods : 
+- alias p=kubectl : 
+- p run pod_name --image nginx : 
+- p get pods -o wide : 
+
+Cluster > Node > default Pool 
+
+- p describe pod_name : 
+
+
+---
+
 

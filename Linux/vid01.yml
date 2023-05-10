@@ -1,0 +1,33 @@
+--- 
+
+Users : 
+- normal
+  - Basic permissions 
+  - Basic stuff 
+  - Create, delete, read, write files 
+- Sudoers 
+  - root User ( sudo user )
+  - can update install a package 
+
+Commands : 
+
+- sudo apt update 
+
+- sudo su - 
+
+- exit 
+
+- cd / : 
+  - root directory 
+
+- cd ~ :
+ - home directory 
+
+- sudo is must on installing whether you are a sudoers or not
+
+- editor : 
+  - nano 
+  - vim 
+  - vi
+
+---
