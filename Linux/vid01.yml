@@ -30,4 +30,32 @@ Commands :
   - vim 
   - vi
 
+- cat : 
+  cat file1 >> file2 : 
+    - Append file1 to file2 ( content )
+  cat file1 > file2 : 
+    - Overwrite file1 to file2 ( content )
+  cat file1 file2 > file3 : 
+    -  Overwrite file1 and file2 to file3 ( content )
+
+
+Docker - Kubernetes Region : 
+  - ps : 'to know process IDs'
+    - kernel will create a process ID then process it and give the output at the very end  
+  - ps aux : 'to get more about process ID'
+
+  - netstat: 
+    - Give us all network related information used in kubernetes 
+  - netstat -at : 
+  - netstat -lt : 
+  - netstat -au : 
+  - netstat -lu : 
+
+
+ls -l : 
+  - List down all information related to the files and directories 
+  - return list of files in long format 
+  - https://miro.medium.com/v2/resize:fit:1340/0*zCRxvY2MjPJAa9pD
+  - https://docstore.mik.ua/orelly/linux/run/figs/rl3_0401.gif
+
 ---
