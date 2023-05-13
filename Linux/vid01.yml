@@ -53,9 +53,105 @@ Docker - Kubernetes Region :
 
 
 ls -l : 
+  - `-l` stands for long
   - List down all information related to the files and directories 
   - return list of files in long format 
   - https://miro.medium.com/v2/resize:fit:1340/0*zCRxvY2MjPJAa9pD
   - https://docstore.mik.ua/orelly/linux/run/figs/rl3_0401.gif
 
+ 
+chmod <refernce><operation><mods> <filename> :
+  - to change the permissions of a file or directory
+  - https://www.computerhope.com/unix/uchmod.htm
+  - https://linuxhandbook.com/content/images/2020/06/file-permission-explanation-2.png
+  - https://2.bp.blogspot.com/-V2eWUJugBJ0/Ui4Y1TJ45aI/AAAAAAAAAzQ/gwxcb-GlTGA/s1600/chmod4.png
+
+history : 
+  - to get the history of commands used in the terminal
+
+gzip <filename>: 
+  - to compress a file
+  - reduces the size of the file
+  - why : 
+    - to save space 
+    - to reduce the time it takes to transfer the file over the network
+  - https://www.geeksforgeeks.org/compress-command-linux-examples/ 
+
+gunzip <filename>:
+  - to uncompress a file
+  - https://www.geeksforgeeks.org/gunzip-command-in-linux-with-examples/
+
+- Disadvantage :
+  - can't compress a directory 
+  - can only compress a file
+
+tar :
+  - stands for tape archive
+  - used for creating and extracting archive files 
+    - archive files : combination of one or more files
+    - Reason : 
+      - to save space 
+      - to reduce the time it takes to transfer the file over the network
+  - https://www.geeksforgeeks.org/tar-command-linux-examples/
+
+  - Format : 
+    tar cvf pp.tar pp/ : "To create a tar file"
+      - c : create 
+      - v : verbose 
+      - f : file 
+      - pp.tar : name of the file 
+      - pp/ : name of the directory 
+    tar xvf pp.tar : "To extract a tar file"
+      - x : extract 
+      - v : verbose 
+      - f : file 
+      - pp.tar : name of the file
+    tar zcvf \pp.tar.gz pp/ : "To create a tar.gz file"
+      - archive file with compression
+      - z : compress 
+      - c : create 
+      - v : verbose 
+      - f : file 
+      - pp.tar.gz : name of the file 
+      - pp/ : name of the directory 
+    tar zxvf pp.tar.gz : "To extract a tar.gz file"
+      - z : compress 
+      - x : extract 
+      - v : verbose 
+      - f : file 
+      - pp.tar.gz : name of the file
+
+    - ssh : 
+      - Secure Shell
+      - used to connect to a remote server
+      - To get into a particular machine to do our stuff 
+      - https://www.hostinger.in/tutorials/ssh-tutorial-how-does-ssh-work#:~:text=SSH%20stands%20for%20Secure%20Shell,SSH%20protocol%20is%20encrypted%20securely.
+
+      - format :
+        ssh-keygen : generates a public-private key 
+        - filename.pub - public key 
+        - filename - private key 
+        ssh -i <private key> <username>@<ip address> : to connect to a remote server
+        - -i : identity file
+        - <private key> : private key file name
+        - <username> : username of the remote server
+        - <ip address> : ip address of the remote server
+        - ssh -i pp.pem
+      
+    - scp :
+      - secure copy
+      - used to copy files from local machine to remote server and vice versa
+      - to download something from remote server or to send something to remote server 
+      - format :
+        - Send Data 
+          scp -i <private key> <filename-with-full-path> <username>@<ip address>:<path> : to copy a file from local machine to remote server
+        - Download Data 
+          scp -i <private key> <username>@<ip address>:<path> : to copy a file from remote server to local machine
+        - -i : identity file
+        - <private key> : private key file name
+        - <filename> : name of the file to be copied
+        - <username> : username of the remote server
+        - <ip address> : ip address of the remote server
+        - <path> : path of the remote server
+        - scp -i pp.pem pp.tar.gz
 ---
