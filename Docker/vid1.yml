@@ -1,0 +1,89 @@
+---
+Docker:
+  - Open platform for developing, shipping, and running applications
+
+  - applications product lifecycle : Development -> Infrastructure(Docker helps here)
+
+  - Docker is a tool designed to make it easier to create, deploy, and run applications by using containers.
+
+  - ex: Amazon.com 
+    - Application divide in three major parts 
+      - codebase ( in SpringBoot )
+      - Database ( MySQL)
+      - Caching service ( Redis )
+---
+
+---
+Images: 
+  - Images are the snapshot of application capture its code libraries and dependencies
+  used etc
+
+  - Immutable, Read-only template 
+
+  - Rebuild the image to update the application
+
+  - Images are made of : 
+    - Dockerfile
+
+  - Images are also divided into the layer 
+    - Layers : Small fragments of the image 
+      - ex: 
+        - Layer 1 : Apache layer
+        - Layer 2 : Ubuntu layer 
+        - Layer 3 : Configurations file
+        - layer 4 : Development
+            |
+            |
+        - Layer n : ............
+    - There can be multiple layers no such Ideal count 
+
+    Interview Question: 
+    - Why we are using multi-layered approach ?
+      - Because of the caching : " If there is a common layer between two images of the parts of application then It performs caching means .. `layer is already downloaded in the machine it won't download it again` .. it will use the same layer from the cache." 
+      - ` Layers are resuable `
+        - Advantages : 
+          - Less disk usage
+          - Speed up the build process 
+          - Less network bandwidth
+
+  - Images are the building blocks of Docker containers.
+
+    - Image of the subcategories 
+      - Easy for other team to test it, develop new feature 
+      - Easy to deploy in production
+      - Easy to scale up and down
+
+    - Multiple dependencies in Spring boot 
+    
+    - Images helps us to be more foucsed on the codebase or business logic and not on the dependencies 
+---
+
+---
+Container :   
+  - Running instance of the image
+
+  - A images needs to be run somewhere to be useful that somewhere is called container 
+  
+  - Container is the runtime instance of the image
+  - It also run somewhere into the machine
+---
+
+--- 
+Docker Components : 
+  - Client 
+  - Docker Host, Docker Engine, Docker Daemon
+  - Docker Registry 
+
+  - Client : Human 
+  - Docker host : God 
+  - RestAPIs : prayers 
+
+  - Client : One who is going to interact with the docker host
+  - Docker host : Where the images are going to run 
+  - Docker Registry : Where the images are going to store
+  - RestAPIs : To interact with the docker host
+
+  - Docker Hub : public registry to store the images
+
+  - Docker Desktop : Combination of Client,  Docker D, Docker Registry
+---
