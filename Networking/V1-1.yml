@@ -1,0 +1,95 @@
+Computer Networking : "01"
+
+--- 
+  US Gov. Program - ARPANET (1969)
+  4 Nodes
+    - MIT 
+    - UCLA
+    - Stanford
+    - University of Utah
+  TCP/IP
+
+  WWW : "World Wide Web"
+    - A system of interlinked hypertext documents accessed via the internet
+    - Tim Berners-Lee (1989)
+    - First web browser : '1990'
+    - web server : A computer that stores web pages and responds to requests from web browsers ( Consider pages as a file or documents )
+
+  World's first website : http://info.cern.ch/hypertext/WWW/TheProject.html
+
+  First Search Engine : "Archie" (1990)
+    - Alan Emtage
+    - McGill University
+    - Montreal, Quebec, Canada
+
+  Internet Society : 
+    - Responsible for the internet standards and protocols 
+    - 1992 
+    - RFC : 'Request for Change'  
+
+  ```
+          --- Request ---> 
+  [Client]                 [Server]
+          <--- Response ---
+  ```
+
+  Protocol : "A set of rules that governs the communication between two devices"
+
+  TCP :  "Transmission Control Protocol"
+    - Connection Oriented Protocol
+    - ensures that all the packets reach the destination in the same order in which they were sent and completely 
+    - Ex : file transfer, email, web browsing
+
+  UDP : "User Datagram Protocol"
+    - Connectionless Protocol
+    - No guarantee that the packets will reach the destination in the same order in which they were sent and completely
+    - Ex : Video Streaming, Online Gaming, VoIP
+
+  HTTP : "Hyper Text Transfer Protocol"
+    - Used be web browsers ( eg. WWW ) and web servers to communicate 
+    - defines data format transmitting in between web clients and servers
+    - Ex : GET, POST, PUT, DELETE
+    - How data get transferred from client to server and vice-versa defined under HTTP 
+
+  - Global IP Addresses
+  - Local IP Addresses
+    - DHCP : "Dynamic Host Configuration Protocol"
+  NAT : Network access translator 
+    - Which Device make that request - Decide by IP Address
+    - But Which application make that request - Decide by Port Number
+
+  ```
+          --- Request ---> 
+  [IP/PN]                 [IP/PN]
+          <--- Response ---
+  ```
+
+  Port Numbers : '16 bit number'
+  - no. of ports : 65536 ~ 2^16
+  - 0 - 1023 : Well Known Ports
+  - 1024 - 49151 : Registered Ports
+  Reserved ports : {
+    HTTP : 80, 
+    MongoDB : 27017, 
+    MySQL : 3306, 
+    SQL : 1433
+  }
+  - 49152 - 65535 : Dynamic Ports ( For local use )
+  
+  Speed : 
+    - 1Mbps : 1 mega bits per second 
+
+  Upload : send data from local machine to remote machine
+  Download : recieve data from remote machine to local machine
+
+  - How Different countries connected to each other in context of internet ? : [Submarine Cables](https://www.submarinecablemap.com)
+  - How these cabels made up of ? : [Optics Fibre cables, Coaxial cabels](https://www.youtube.com/watch?v=Omr0JNyDBI0)
+  - Wireless : Radio channels, Bluetooth, WiFi,
+  ` Cabels faster then satellite `
+
+  - Topologies : 
+  
+
+
+
+---
