@@ -46,7 +46,7 @@ Computer Networking : "01"
     - Ex : Video Streaming, Online Gaming, VoIP
 
   HTTP : "Hyper Text Transfer Protocol"
-    - Used be web browsers ( eg. WWW ) and web servers to communicate 
+    - Used by web browsers ( eg. WWW ) and web servers to communicate 
     - defines data format transmitting in between web clients and servers
     - Ex : GET, POST, PUT, DELETE
     - How data get transferred from client to server and vice-versa defined under HTTP 
@@ -88,7 +88,6 @@ Computer Networking : "01"
   ` Cabels faster then satellite `
 
   - Topologies : 
-  
 
 
 
