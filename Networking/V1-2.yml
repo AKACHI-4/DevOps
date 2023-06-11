@@ -211,9 +211,10 @@ Protocols :
 
   Ports : 
     - Determine which application 
-    - Now what about which process in that application ? 
+    - Now what about which process (running instances) in that application ? 
     - Ephermal ports : 
       - Ephemeral ports, also known as dynamic ports or private ports, refer to a range of port numbers used by the operating system for temporary communication sessions. 
+      - Exist on client side but on server side we have to know the port number 
 
 HTTP : 'Hypertext Transfer Protocol'
 
@@ -222,11 +223,16 @@ HTTP : 'Hypertext Transfer Protocol'
   - HTTP Methods : 
     - GET, POST, PUT, DELETE
   - Port : 80
-  - stateless protocol
+  - stateless protocol : 
+    - Does not maintain any memory of previous interactions or request made be a client. 
+
+  Every Application layer protocols also require a transport layer protocol to transport its messages. 
 
   ```
     HTTP (Application Layer) uses TCP (Transport Layer) to transport its messages.
   ```
+
+  - Connnection Oriented 
 
   Status Code : 
    - Tells us the status of the response and request whethere it is fully transfered or not or any error occured or not
@@ -236,5 +242,37 @@ HTTP : 'Hypertext Transfer Protocol'
    - 4xx : Client Error
    - 5xx : Server Error
 
+  Cookies : 
+    - Unique string 
+    - stored in client browser 
+    - sent to server with every request so server can identify the client 
+    - set-cookie : 
+
+  Third-party Cookies : 
+    - Cookies that are set by a website other than the one you are currently on 
+
+  - How Email works ? 
+    SMTP, POP3 : Application Layer protocols
+    TCP : Transport Layer protocol
+
+    SMTP : 
+      ```nslookup -type=mx gmail.com```
+      - Port : 25
+
+    POP : 'Post Office Protocol'
+      - Port : 110 
+
+    IMAP : 'Internet Message Access Protocol'
+      - Helps to keep the email in sync across multiple devices
+
+    -> In summary, SMTP is used for sending outgoing emails, POP is used to download and store emails on a local device, and IMAP is used to access and synchronize emails across multiple devices while keeping them stored on the server.  
+
+   
+    ```
+            --- Authorize ---> 
+    [Client]                 [POP Server]
+            <--- Transact ---
+    ``` 
+    
 
 --- 
