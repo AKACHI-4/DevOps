@@ -1,0 +1,73 @@
+pipeline { 
+  agent { 
+    docker { 
+      image 'abhishekf5/maven-abhishek-docker-agent:v1'
+      args '--user root -v /var/run/docker.sock:/var/run/docker.sock' // mount Docker socket to access the host's Docker daemon
+    }
+  }
+
+  stages {
+    stage('Checkout') {
+      steps {
+        sh 'echo passed'
+        //git branch: 'main', url: 'https://github.com/AKACHI-4/DevOps.git'
+      }
+    }
+
+    stage('Build and Test') {
+      steps {
+        sh 'ls -ltr'
+        // build the project and create a JAR file
+        sh 'cd \'Jenkins Argo CICD\'/app && mvn clean package'
+      }
+    }
+
+    stage('Static Code Analysis') {
+      environment {
+        SONAR_URL="http://:9000"
+      }
+      steps {
+        withCredentials([string(credentialsId: 'sonarqube', variable: 'SONAR_AUTH_TOKEN')]) {
+          sh 'cd \'Jenkins Argo CICD\'/app && mvn sonar:sonar -Dsonar.login=$SONAR_AUTH_TOKEN -Dsonar.host.url=${SONAR_URL}'
+        }
+      }
+    }
+
+    stage('Build and Push Docker Image') {
+      environment {
+        DOCKER_IMAGE = "adarsh_9/Jenkins-Argo-CICD:${BUILD_NUMBER}"
+        // DOCKERFILE_LOCATION = "\'Jenkins Argo CICD\'/app/Dockerfile"
+        REGISTRY_CREDENTIALS = credentials('docker-cred')
+      }
+      steps {
+        script {
+          sh 'cd \'Jenkins Argo CICD\'/app && docker build -t ${DOCKER_IMAGE} .'
+          def dockerImage = docker.image("${DOCKER_IMAGE}")
+          docker.withRegistery('https://index.docker.io/v1/', "docker-cred") {
+            dockerImage.push()
+          }
+        }
+      }
+    }
+
+    stage('Update Deployment File') {
+      environment {
+        GIT_REPO_NAME = "DevOps"
+        GIT_USER_NAME = "AKACHI-4"
+      }
+      steps {
+        withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]) {
+          sh '''
+            git config user.email "adarshrawat8304@gmail.com"
+            git config user.name "AKACHI-4"
+            BUILD_NUMBER=${BUILD_NUMBER}
+            sed -i "s/replaceImageTag/${BUILD_NUMBER}/g" \'Jenkins Argo CICD\'/manifest/deployment.yml
+            git add \'Jenkins Argo CICD\'/manifest/deployment.yml
+            git commit -m "updated deployment image to version ${BUILD_NUMBER}"
+            git push https://${GITHUB_TOKEN}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME} HEAD:main
+          '''
+        }
+      }
+    }
+  }
+}
