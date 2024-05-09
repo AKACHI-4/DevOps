@@ -24,7 +24,7 @@ pipeline {
 
     stage('Static Code Analysis') {
       environment {
-        SONAR_URL="http://:9000"
+        SONAR_URL="http://54.237.119.221:9000"
       }
       steps {
         withCredentials([string(credentialsId: 'sonarqube', variable: 'SONAR_AUTH_TOKEN')]) {
@@ -35,7 +35,7 @@ pipeline {
 
     stage('Build and Push Docker Image') {
       environment {
-        DOCKER_IMAGE = "adarsh_9/Jenkins-Argo-CICD:${BUILD_NUMBER}"
+        DOCKER_IMAGE = "adarsh_9/jenkins-argo-cicd:${BUILD_NUMBER}"
         // DOCKERFILE_LOCATION = "\'Jenkins Argo CICD\'/app/Dockerfile"
         REGISTRY_CREDENTIALS = credentials('docker-cred')
       }
@@ -69,5 +69,5 @@ pipeline {
         }
       }
     }
-  }
+  } 
 }
