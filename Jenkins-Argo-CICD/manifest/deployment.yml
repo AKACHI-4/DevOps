@@ -15,7 +15,7 @@ metadata:
           app: spring-boot-app
       spec:
         containers:
-          - name: spring-boot-app
-            image: adarsh8304/jenkins-argo-cicd:13
-            ports:
-              - containerPort: 8080
+        - name: spring-boot-app
+          image: adarsh8304/jenkins-argo-cicd:13
+          ports:
+          - containerPort: 8080
