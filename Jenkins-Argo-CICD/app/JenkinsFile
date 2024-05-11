@@ -35,7 +35,7 @@ pipeline {
 
     stage('Build and Push Docker Image') {
       environment {
-        DOCKER_IMAGE = "adarsh_9/jenkins-argo-cicd:${BUILD_NUMBER}"
+        DOCKER_IMAGE = "adarsh8304/jenkins-argo-cicd:${BUILD_NUMBER}"
         // DOCKERFILE_LOCATION = "\'Jenkins Argo CICD\'/app/Dockerfile"
         REGISTRY_CREDENTIALS = credentials('docker-cred')
       }
